@@ -124,7 +124,7 @@ Connection is established with smtp.gmail.com (port 587, SSL)
         ↓
 The email is sent successfully
 ```
-##**Server Response Handling**
+## **Server Response Handling**
 
 The system attempts to send the email (try block)
         ↓
