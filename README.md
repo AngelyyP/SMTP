@@ -124,6 +124,29 @@ Connection is established with smtp.gmail.com (port 587, SSL)
         ↓
 The email is sent successfully
 ```
+## Basic SMTP Sending Flow
+| Step | Action | Component / Script | Result |
+|-----:|--------|-------------------|--------|
+| 1 | Game starts | `SendEmail.Start()` | Score initialized, UI updated, game active |
+| 2 | Player moves | `PlayerMovement.Update()` | Player moves using keyboard input |
+| 3 | Player collides with object | `PlayerCollision.OnTriggerEnter()` | Collision detected |
+| 4 | Collision with **Good** object | `CompareTag("Good")` | `AddPoint()` method is called |
+| 5 | Score increases | `SendEmail.AddPoint()` | Score updated on screen |
+| 6 | Score reaches 10 | `SendEmail.AddPoint()` | Victory condition detected |
+| 7 | Victory email is generated | `EmailSend(subject, body)` | Dynamic subject and body created |
+| 8 | Email sent via SMTP | `SmtpClient.Send()` | Email transmitted to SMTP server |
+| 9 | Status shown in UI | `statusText (TMP_Text)` | “Correo enviado: Victoria” |
+|10 | Collision with **Bad** object | `CompareTag("Bad")` | `LoseGame()` method is called |
+|11 | Score reset to 0 | `SendEmail.LoseGame()` | Game over condition |
+|12 | Defeat email is generated | `EmailSend(subject, body)` | Dynamic defeat message created |
+|13 | Email sent via SMTP | `SmtpClient.Send()` | Email transmitted |
+|14 | Status shown in UI | `statusText (TMP_Text)` | “Correo enviado: Derrota” |
+|15 | Player survives 30 seconds | `SendEmail.Update()` | Timer reaches 30 seconds |
+|16 | Special event detected | `timer >= 30f` | Special event triggered |
+|17 | Special event email generated | `EmailSend(subject, body)` | Dynamic special event message |
+|18 | Email sent via SMTP | `SmtpClient.Send()` | Email transmitted |
+|19 | Status shown in UI | `statusText (TMP_Text)` | “Correo enviado: Evento especial” |
+
 ## **Server Response Handling**
 ```text
 
