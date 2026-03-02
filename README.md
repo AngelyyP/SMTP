@@ -125,6 +125,7 @@ Connection is established with smtp.gmail.com (port 587, SSL)
 The email is sent successfully
 ```
 ## **Server Response Handling**
+```text
 
 The system attempts to send the email (try block)
         ↓
@@ -143,3 +144,4 @@ Does the SMTP server respond correctly?
          The error is captured (catch block)
               ↓
          Error message is displayed in the UI
+```
