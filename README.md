@@ -42,10 +42,15 @@ The game event result is determined
         ↓
 The email notification system is triggered
 ```
-## **SMTP FLOW**
+
+## **Video**
+Link: https://youtu.be/FqHSawGauqU
+
+## **SMTP Flow**
 
 Victory Event
 
+``` text
 The player collides with a positive object
         ↓
 The player score increases
@@ -69,9 +74,10 @@ The SMTP client is configured
 Connection is established with smtp.gmail.com (port 587, SSL)
         ↓
 The email is sent successfully
-
+```
 
 Defeat Event
+``` text
 
 The player collides with a negative object
         ↓
@@ -88,8 +94,9 @@ The email body is dynamically generated
 The MailMessage object is created
         ↓
 SMTP client is configured and email is sent
-
+```
 Especial Event
+```text
 
 The game starts
         ↓
@@ -116,7 +123,7 @@ The SMTP client is configured
 Connection is established with smtp.gmail.com (port 587, SSL)
         ↓
 The email is sent successfully
-
+```
 ##**Server Response Handling**
 
 The system attempts to send the email (try block)
